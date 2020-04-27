@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mine Scanning Station</title>
+
+    <!-- Chrome/android APP settings -->
+    <meta name="theme-color" content="#4287f5">
+    <link rel="icon" href="img/icon.png" sizes="192x192">
+    <!-- end of Chrome/Android App Settings  -->
+
+    <!-- Bootstrap // you can use hosted CDN here-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <!-- end of bootstrap -->
+
+    <!-- Bar-code Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+    <!-- Page Start -->
+    <div class="pt-5 container bg-white rounded">
+
+        <!-- NAV START -->
+        <nav class="navbar navbar-dark bg-dark rounded">
+            <a class="navbar-brand" href="index.php">
+                <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top  bg-white rounded"
+                    alt="Logo">
+                Mine Scanning Station
+            </a>
+        </nav>
+        <!-- NAV END -->
+
+        <section>
+            <div class="row bg-white">
+                <div class="col-12 bg-white text-center">
+                    <div class="bg-dark p-1 my-1 rounded" style="margin: auto;">
+                        <img src="img/Logo.jpg" class="img-fluid rounded" style="height: 200px; width: 600px;"
+                            alt="Header">
+                    </div>
+                </div>
+            </div>
+
+            <!-- form start-->
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    Codes for Scanner
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+
+                        <div class="form-group line">
+                            <!-- Table Temp -->
+                            <table class="p-4 m-4">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <h1>Temp Celsius:</h1>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="barCode">
+                                            34
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="barCode">
+                                            35
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="barCode">
+                                            36
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="barCode">
+                                            37
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="barCode">
+                                            38
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="barCode">
+                                            39
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="barCode">
+                                            40
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Table Options -->
+                            <table class="p-4 m-4">
+                                <thead>
+                                    <tr>
+                                        <td colspan="2">
+                                            <h1> Options: </h1>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Yes </td>
+                                        <td class="barCode"> Y F</td>
+                                    </tr>
+                                    <tr>
+                                        <td>No </td>
+                                        <td class="barCode"> N F</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Forward </td>
+                                        <td class="barCode"> F </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Back </td>
+                                        <td class="barCode"> B </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Save </td>
+                                        <td class="barCode"> S </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Cancel </td>
+                                        <td class="barCode"> C </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- form end -->
+            <br><br>
+            <!-- Main Content Start-->
+        </section>
+
+
+    </div>
+    <!-- Page End -->
+
+    <!-- Start of Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- end of Bootstrap JS -->
+</body>
+
+</html>
