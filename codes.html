@@ -19,7 +19,7 @@
     <!-- end of bootstrap -->
 
     <!-- Bar-code Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-primary">
@@ -115,20 +115,27 @@
                                 <tbody>
                                     <tr>
                                         <td> Yes </td>
-                                        <td class="barCode"> Y F</td>
+                                        <td class="barCode"> Y
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>No </td>
-                                        <td class="barCode"> N F</td>
+                                        <td class="barCode"> N
+                                        </td>
                                     </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Table Forms -->
+                            <table class="p-4 m-4">
+                                <thead>
                                     <tr>
-                                        <td> Forward </td>
-                                        <td class="barCode"> F </td>
+                                        <td colspan="2">
+                                            <h1> Form: </h1>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td> Back </td>
-                                        <td class="barCode"> B </td>
-                                    </tr>
+                                </thead>
+                                <tbody>
                                     <tr>
                                         <td> Save </td>
                                         <td class="barCode"> S </td>
@@ -140,7 +147,8 @@
                                 </tbody>
                             </table>
                         </div>
-
+                        <button type="button" class="btn btn-outline-primary btn-lg form-control"
+                            onclick="document.location.href='index.php'">Home</button>
                     </form>
                 </div>
             </div>
@@ -158,6 +166,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- end of Bootstrap JS -->
+
 </body>
 
 </html>

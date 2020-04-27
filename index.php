@@ -90,18 +90,24 @@ if(isset($_POST['CompanyNumber'])){
                     New Scan
                 </div>
                 <div class="card-body">
-                    <form method="POST">
+                    <form method="POST" name="form">
 
                         <div class="form-group">
                             <label for="CompanyNumber">Company Number#</label>
-                            <input type="text" class="form-control" id="CompanyNumber" name="CompanyNumber"
+                            <input type="text" class="form-control" id="CompanyNumber" name="CompanyNumber" autofocus
                                 placeholder="Company Number here..." maxlength="8" minlength="8" required>
                         </div>
 
-                        <button class="btn btn-outline-success btn-lg form-control">Scan</button>
+                        <button class="btn btn-outline-success btn-lg form-control" id="save">Scan</button>
                     </form>
                 </div>
             </div>
+            <br><br>
+            <button class="btn btn-outline-primary btn-lg form-control mb-1"
+                onclick="document.location.href='codes.html'">Scan
+                Codes</button>
+            <button class="btn btn-outline-primary btn-lg form-control"
+                onclick="document.location.href='dash.php'">Dash</button>
             <!-- form end -->
             <br><br>
             <!-- Main Content Start-->
@@ -124,6 +130,8 @@ if(isset($_POST['CompanyNumber'])){
         echo '<script src="js/popup.js"></script>';
     }
     ?>
+    <!-- add form actions. -->
+    <script src="js/Activity.js"></script>
 </body>
 
 </html>

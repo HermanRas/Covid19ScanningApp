@@ -1,3 +1,23 @@
+<?php
+// Get Total Year Stat
+$sql = "SELECT count(id) as Total from [SomeDB].[dbo].[Covid19ScanResults]
+        WHERE Year(DateTimeStamp) = Year(GetDate())";
+$sqlargs = array();
+require_once 'config/db_query.php'; 
+$YResult =  sqlQuery($sql,$sqlargs);
+$YearTotal = $YResult[0][0]['Total'];
+
+// Get Total Month Stat
+$sql = "SELECT count(id) as Total from [SomeDB].[dbo].[Covid19ScanResults]
+        WHERE (Year(DateTimeStamp) = Year(GetDate()) AND
+               Month(DateTimeStamp) = Month(GetDate()))";
+$sqlargs = array();
+require_once 'config/db_query.php'; 
+$MResult =  sqlQuery($sql,$sqlargs);
+$MonthTotal = $MResult[0][0]['Total'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +65,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total
                                     (Annual)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">42,433</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $YearTotal?></div>
                             </div>
                         </div>
                     </div>
@@ -61,7 +81,7 @@
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total
                                     (Monthly)
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">11,965</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $MonthTotal?></div>
                             </div>
                         </div>
                     </div>
@@ -78,11 +98,11 @@
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">15%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">1%</div>
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 15%"
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 1%"
                                                 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
@@ -101,7 +121,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Positive Test
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                             </div>
                         </div>
                     </div>

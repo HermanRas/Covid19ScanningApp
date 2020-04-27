@@ -111,7 +111,7 @@ die;
                 Scan Now !
             </div>
             <div class="card-body">
-                <form method="POST">
+                <form method="POST" id="form">
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
@@ -171,7 +171,8 @@ die;
                     </div>
 
                     <div class="row my-3">
-                        <button class="btn btn-outline-success btn-lg form-control" name="Saved">Save</button>
+                        <button class="btn btn-outline-success btn-lg form-control" id="Saved"
+                            name="Saved">Save</button>
                         <br><br>
                         <button class="btn btn-outline-danger btn-lg form-control"
                             onclick="document.location.href='index.php'">Cancel</button>
@@ -193,29 +194,8 @@ die;
     <script src="js/bootstrap.min.js"></script>
     <!-- end of Bootstrap JS -->
 
-    <!-- Page Specific JS -->
-    <script>
-    function filterEquipment(eqtId) {
-        var select = document.getElementById("Equipment");
-        var length = select.options.length;
-        for (i = length - 1; i >= 0; i--) {
-            select.options[i] = null;
-        }
-        var opt = document.createElement("option");
-        opt.value = "";
-        opt.text = "Select Equipment ";
-        select.add(opt, null);
-
-        Equipment[0].forEach(element => {
-            if (element.EquipmentTypeId == eqtId.value) {
-                opt = document.createElement("option");
-                opt.value = element.EquipmentId;
-                opt.text = element.EquipmentDescription;
-                select.add(opt, null);
-            };
-        });
-    }
-    </script>
+    <!-- add form actions. -->
+    <script src="js/Activity.js"></script>
 </body>
 
 </html>
