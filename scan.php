@@ -119,7 +119,7 @@ die;
                             <input type="number" class="form-control" id="Temperature" name="Temperature" required>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="TemperatureRange">Temperature Normal Range</label>
+                            <label for="TemperatureRange">Temp.. Out of range</label>
                             <select type="text" class="form-control" id="TemperatureRange" name="TemperatureRange"
                                 required>
                                 <option value="">Select </option>

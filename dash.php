@@ -1,6 +1,6 @@
 <?php
 // Get Total Year Stat
-$sql = "SELECT count(id) as Total from [SomeDB].[dbo].[Covid19ScanResults]
+$sql = "SELECT count(id) as Total from [Covid19ScanResults]
         WHERE Year(DateTimeStamp) = Year(GetDate())";
 $sqlargs = array();
 require_once 'config/db_query.php'; 
@@ -8,13 +8,34 @@ $YResult =  sqlQuery($sql,$sqlargs);
 $YearTotal = $YResult[0][0]['Total'];
 
 // Get Total Month Stat
-$sql = "SELECT count(id) as Total from [SomeDB].[dbo].[Covid19ScanResults]
+$sql = "SELECT count(id) as Total from [Covid19ScanResults]
         WHERE (Year(DateTimeStamp) = Year(GetDate()) AND
                Month(DateTimeStamp) = Month(GetDate()))";
 $sqlargs = array();
 require_once 'config/db_query.php'; 
 $MResult =  sqlQuery($sql,$sqlargs);
 $MonthTotal = $MResult[0][0]['Total'];
+
+
+// Get Total Daily Stat
+$sql = "SELECT count(id) as Total from [Covid19ScanResults]
+        WHERE (Year(DateTimeStamp) = Year(GetDate()) AND
+               Month(DateTimeStamp) = Month(GetDate()) AND
+               Day(DateTimeStamp) = Day(GetDate()))";
+$sqlargs = array();
+require_once 'config/db_query.php'; 
+$DResult =  sqlQuery($sql,$sqlargs);
+$DayTotal = $DResult[0][0]['Total'];
+
+
+// Pos Results
+$sql = "SELECT [PercentagePostive]
+        FROM [vPercentragePosDaily]";
+$sqlargs = array();
+require_once 'config/db_query.php'; 
+$PosResult =  sqlQuery($sql,$sqlargs);
+$PosTotal = $PosResult[0][0]['Total'];
+
 
 ?>
 
@@ -88,22 +109,41 @@ $MonthTotal = $MResult[0][0]['Total'];
                 </div>
             </div>
 
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total
+                                    (Daily)
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $DayTotal?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Posable Symptoms
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Positive Symptoms
+                                    %
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">1%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $PosTotal?>%
+                                        </div>
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 1%"
-                                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                style="width: <?php echo $DayTotal?>%" aria-valuenow="50"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,21 +153,9 @@ $MonthTotal = $MResult[0][0]['Total'];
                 </div>
             </div>
 
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Positive Test
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
+
         <!-- Stats End -->
 
         <!-- Main Content Start-->
@@ -139,8 +167,8 @@ $MonthTotal = $MResult[0][0]['Total'];
         }
 
         #SQL Connect
-        $sql = "SELECT top 1000 [SomeDB].[dbo].[Covid19ScanResults].* 
-                from [SomeDB].[dbo].[Covid19ScanResults]
+        $sql = "SELECT top 1000 [Covid19ScanResults].* 
+                from [Covid19ScanResults]
                 Order by DateTimeStamp;";
         $sqlargs = array();
         require_once 'config/db_query.php'; 
