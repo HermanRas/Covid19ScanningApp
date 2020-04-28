@@ -34,8 +34,7 @@ $sql = "SELECT [PercentagePostive]
 $sqlargs = array();
 require_once 'config/db_query.php'; 
 $PosResult =  sqlQuery($sql,$sqlargs);
-$PosTotal = $PosResult[0][0]['Total'];
-
+$PosTotal = $PosResult[0][0]['PercentagePostive'];
 
 ?>
 
@@ -132,7 +131,6 @@ $PosTotal = $PosResult[0][0]['Total'];
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Positive Symptoms
-                                    %
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
