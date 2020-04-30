@@ -1,5 +1,5 @@
 .barCode{
-    font-family: 'Libre Barcode 128 Text', cursive !important;
+    font-family: 'Libre Barcode 39 Text', cursive !important;
     font-size: 3rem;
     padding: 30px;
 }
