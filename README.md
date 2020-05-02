@@ -1,24 +1,24 @@
-# Mine Scanning Station
-<img src="https://github.com/HermanRas/MiningDelays/blob/master/img/Logo.jpg" alt="#PetraLogo">
+# Covid 19 SCaning
+<img src="https://github.com/HermanRas/Covid19Scanning/blob/master/img/Logo.jpg" alt="#PetraLogo">
 
 ## Issues Tracking
 ### Issues Tracking: Total Logged !
- - [![Open Issues](https://img.shields.io/github/issues/HermanRas/MiningDelays.svg)](https://github.com/HermanRas/MiningDelays/issues)
-[!["Closed Issues"](https://img.shields.io/github/issues-closed/HermanRas/MiningDelays.svg?style=flat-square)](https://github.com/HermanRas/MiningDelays/issues)
+ - [![Open Issues](https://img.shields.io/github/issues/HermanRas/Covid19Scanning.svg)](https://github.com/HermanRas/Covid19Scanning/issues)
+[!["Closed Issues"](https://img.shields.io/github/issues-closed/HermanRas/Covid19Scanning.svg?style=flat-square)](https://github.com/HermanRas/Covid19Scanning/issues)
 ### Issues Tracking: by type
- - [!["To Do"](https://img.shields.io/github/issues/HermanRas/MiningDelays/help%20wanted.svg)](https://github.com/HermanRas/MiningDelays/labels/help%20wanted)
-[!["Look At"](https://img.shields.io/github/issues/HermanRas/MiningDelays/enhancement.svg)](https://github.com/HermanRas/MiningDelays/labels/enhancement)
-[!["Open Bug"](https://img.shields.io/github/issues/HermanRas/MiningDelays/bug.svg)](https://github.com/HermanRas/MiningDelays/labels/bug)
-[!["Confirm Scope"](https://img.shields.io/github/issues/HermanRas/MiningDelays/question.svg)](https://github.com/HermanRas/MiningDelays/labels/question)
+ - [!["To Do"](https://img.shields.io/github/issues/HermanRas/Covid19Scanning/help%20wanted.svg)](https://github.com/HermanRas/Covid19Scanning/labels/help%20wanted)
+[!["Look At"](https://img.shields.io/github/issues/HermanRas/Covid19Scanning/enhancement.svg)](https://github.com/HermanRas/Covid19Scanning/labels/enhancement)
+[!["Open Bug"](https://img.shields.io/github/issues/HermanRas/Covid19Scanning/bug.svg)](https://github.com/HermanRas/Covid19Scanning/labels/bug)
+[!["Confirm Scope"](https://img.shields.io/github/issues/HermanRas/Covid19Scanning/question.svg)](https://github.com/HermanRas/Covid19Scanning/labels/question)
 
 ### Latest Release
- - [!["Latest Release"](https://img.shields.io/github/release/HermanRas/MiningDelays.svg)](https://github.com/HermanRas/MiningDelays/releases)
-[!["Release Date"](https://img.shields.io/github/release-date/HermanRas/MiningDelays.svg)](https://github.com/HermanRas/MiningDelays/releases)
+ - [!["Latest Release"](https://img.shields.io/github/release/HermanRas/Covid19Scanning.svg)](https://github.com/HermanRas/Covid19Scanning/releases)
+[!["Release Date"](https://img.shields.io/github/release-date/HermanRas/Covid19Scanning.svg)](https://github.com/HermanRas/Covid19Scanning/releases)
 
 ### Latest Dev Build
- - [!["Latest Release"](https://img.shields.io/github/release-pre/HermanRas/MiningDelays.svg)](https://github.com/HermanRas/MiningDelays/releases)
-[!["Release Date"](https://img.shields.io/github/release-date-pre/HermanRas/MiningDelays.svg)](https://github.com/HermanRas/MiningDelays/releases)
-[!["Last Updated"](https://img.shields.io/github/last-commit/HermanRas/MiningDelays.svg)](https://github.com/HermanRas/MiningDelays/releases)
+ - [!["Latest Release"](https://img.shields.io/github/release-pre/HermanRas/Covid19Scanning.svg)](https://github.com/HermanRas/Covid19Scanning/releases)
+[!["Release Date"](https://img.shields.io/github/release-date-pre/HermanRas/Covid19Scanning.svg)](https://github.com/HermanRas/Covid19Scanning/releases)
+[!["Last Updated"](https://img.shields.io/github/last-commit/HermanRas/Covid19Scanning.svg)](https://github.com/HermanRas/Covid19Scanning/releases)
 
 ### Requirements
  - [!["PHP 7.2"](https://img.shields.io/badge/PHP-7.2%5E-blue.svg)](https://www.php.net/)(php7.2-xml, php7.2-mbstring, php7.2-zip)
