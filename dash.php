@@ -1,7 +1,7 @@
 <?php
 // Get Total Year Stat
 $sql = "SELECT count(id) as Total from [Covid19ScanResults]
-        WHERE Year(DateTimeStamp) = Year(GetDate())";
+        WHERE  substr(DATE(DateTimeStamp),1,4) = substr(DATE('now'),1,4)";
 $sqlargs = array();
 require_once 'config/db_query.php'; 
 $YResult =  sqlQuery($sql,$sqlargs);
@@ -9,8 +9,8 @@ $YearTotal = $YResult[0][0]['Total'];
 
 // Get Total Month Stat
 $sql = "SELECT count(id) as Total from [Covid19ScanResults]
-        WHERE (Year(DateTimeStamp) = Year(GetDate()) AND
-               Month(DateTimeStamp) = Month(GetDate()))";
+        WHERE (substr(DATE(DateTimeStamp),1,4) = substr(DATE('now'),1,4) AND
+               substr(DATE(DateTimeStamp),6,2) = substr(DATE('now'),6,2));";
 $sqlargs = array();
 require_once 'config/db_query.php'; 
 $MResult =  sqlQuery($sql,$sqlargs);
@@ -19,9 +19,9 @@ $MonthTotal = $MResult[0][0]['Total'];
 
 // Get Total Daily Stat
 $sql = "SELECT count(id) as Total from [Covid19ScanResults]
-        WHERE (Year(DateTimeStamp) = Year(GetDate()) AND
-               Month(DateTimeStamp) = Month(GetDate()) AND
-               Day(DateTimeStamp) = Day(GetDate()))";
+        WHERE (substr(DATE(DateTimeStamp),1,4) = substr(DATE('now'),1,4) AND
+               substr(DATE(DateTimeStamp),6,2) = substr(DATE('now'),6,2) AND
+               substr(DATE(DateTimeStamp),9,2) = substr(DATE('now'),9,2));";
 $sqlargs = array();
 require_once 'config/db_query.php'; 
 $DResult =  sqlQuery($sql,$sqlargs);
@@ -29,12 +29,11 @@ $DayTotal = $DResult[0][0]['Total'];
 
 
 // Pos Results
-$sql = "SELECT [PercentagePostive]
-        FROM [vPercentragePosDaily]";
+$sql = 'SELECT ((select * from vPosResults)*100 / count(id)) as PosPers from "Covid19ScanResults" limit 1000';
 $sqlargs = array();
 require_once 'config/db_query.php'; 
 $PosResult =  sqlQuery($sql,$sqlargs);
-$PosTotal = $PosResult[0][0]['PercentagePostive'];
+$PosTotal = $PosResult[0][0]['PosPers'];
 
 ?>
 
@@ -165,9 +164,10 @@ $PosTotal = $PosResult[0][0]['PercentagePostive'];
         }
 
         #SQL Connect
-        $sql = "SELECT top 1000 [Covid19ScanResults].* 
-                from [Covid19ScanResults]
-                Order by DateTimeStamp;";
+        $sql = "SELECT * 
+                from Covid19ScanResults
+                Order by DateTimeStamp
+                LIMIT 1000;";
         $sqlargs = array();
         require_once 'config/db_query.php'; 
         $Results =  sqlQuery($sql,$sqlargs);
@@ -183,15 +183,29 @@ $PosTotal = $PosResult[0][0]['PercentagePostive'];
                 <!-- Filters -->
                 <div>
                     <b>Toggle column:</b>
-                    <a class="toggle-vis" data-column="1">CN</a> |
-                    <a class="toggle-vis" data-column="2">Date</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="1">IDNumber</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="2">Temp#</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="3">TempNormal</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="4">HistoryOfFever</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="5">SoreThroat</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="6">Cough</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="7">DifficultyInBreathing</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="8">Diarrhea</a>
+                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="9">Date</a>
                 </div>
                 <!-- Table Start -->
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th>Company#</th>
+                            <th>IDNumber#</th>
+                            <th>Temp#</th>
+                            <th>TempNormal</th>
+                            <th>HistoryOfFever</th>
+                            <th>SoreThroat</th>
+                            <th>Cough</th>
+                            <th>DifficultyInBreathing</th>
+                            <th>Diarrhea</th>
                             <th>Date</th>
                         </tr>
                     </thead>
@@ -202,7 +216,14 @@ $PosTotal = $PosResult[0][0]['PercentagePostive'];
                     ?>
                         <tr>
                             <td><?php echo $Rec['id'] ?></td>
-                            <td><?php echo $Rec['CompanyNumber']; ?></td>
+                            <td><?php echo $Rec['IDNumber']; ?></td>
+                            <td><?php echo $Rec['Temperature']; ?></td>
+                            <td><?php echo $Rec['TemperatureRange']; ?></td>
+                            <td><?php echo $Rec['HistoryOfFever']; ?></td>
+                            <td><?php echo $Rec['SoreThroat']; ?></td>
+                            <td><?php echo $Rec['Cough']; ?></td>
+                            <td><?php echo $Rec['DifficultyInBreathing']; ?></td>
+                            <td><?php echo $Rec['Diarrhea']; ?></td>
                             <td><?php echo $Rec['DateTimeStamp']; ?></td>
                         </tr>
                         <?php
