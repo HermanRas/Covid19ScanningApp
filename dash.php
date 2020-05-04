@@ -176,76 +176,53 @@ $PosTotal = $PosResult[0][0]['PosPers'];
 
         <!-- Form Summary -->
         <div class="card my-3">
-            <div class="card-header bg-dark text-white">
-                Live Scan Results:
-            </div>
-            <div class="card-body bg-light">
-                <!-- Filters -->
-                <div>
-                    <b>Toggle column:</b>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="1">IDNumber</a>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="2">Temp#</a>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="3">TempNormal</a>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="4">HistoryOfFever</a>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="5">SoreThroat</a>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="6">Cough</a>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="7">DifficultyInBreathing</a>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="8">Diarrhea</a>
-                    <a class="btn btn-secondary btn-sm toggle-vis" data-column="9">Date</a>
-                </div>
-                <!-- Table Start -->
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>#ID</th>
-                            <th>IDNumber#</th>
-                            <th>Temp#</th>
-                            <th>TempNormal</th>
-                            <th>HistoryOfFever</th>
-                            <th>SoreThroat</th>
-                            <th>Cough</th>
-                            <th>DifficultyInBreathing</th>
-                            <th>Diarrhea</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+            <h1>Live Scan Results:</h1>
+            <!-- Table Start -->
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#ID</th>
+                        <th>IDNumber#</th>
+                        <th>Temp#</th>
+                        <th>TempNormal</th>
+                        <th>HistoryOfFever</th>
+                        <th>SoreThroat</th>
+                        <th>Cough</th>
+                        <th>DifficultyInBreathing</th>
+                        <th>Diarrhea</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
                     $i = 0;
                     foreach ($Results[0] as $Rec) {
                     ?>
-                        <tr>
-                            <td><?php echo $Rec['id'] ?></td>
-                            <td><?php echo $Rec['IDNumber']; ?></td>
-                            <td><?php echo $Rec['Temperature']; ?></td>
-                            <td><?php echo $Rec['TemperatureRange']; ?></td>
-                            <td><?php echo $Rec['HistoryOfFever']; ?></td>
-                            <td><?php echo $Rec['SoreThroat']; ?></td>
-                            <td><?php echo $Rec['Cough']; ?></td>
-                            <td><?php echo $Rec['DifficultyInBreathing']; ?></td>
-                            <td><?php echo $Rec['Diarrhea']; ?></td>
-                            <td><?php echo $Rec['DateTimeStamp']; ?></td>
-                        </tr>
-                        <?php
+                    <tr>
+                        <td><?php echo $Rec['id'] ?></td>
+                        <td><?php echo $Rec['IDNumber']; ?></td>
+                        <td><?php echo $Rec['Temperature']; ?></td>
+                        <td><?php echo $Rec['TemperatureRange']; ?></td>
+                        <td><?php echo $Rec['HistoryOfFever']; ?></td>
+                        <td><?php echo $Rec['SoreThroat']; ?></td>
+                        <td><?php echo $Rec['Cough']; ?></td>
+                        <td><?php echo $Rec['DifficultyInBreathing']; ?></td>
+                        <td><?php echo $Rec['Diarrhea']; ?></td>
+                        <td><?php echo $Rec['DateTimeStamp']; ?></td>
+                    </tr>
+                    <?php
                         }
                         ?>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>#ID</th>
-                            <th>Company#</th>
-                            <th>Date</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                <!-- Table End -->
-            </div>
+                </tbody>
+            </table>
+            <!-- Table End -->
         </div>
-        <button class="btn btn-outline-primary btn-lg form-control"
-            onclick="document.location.href='index.php'">Home</button>
-        <!-- Form Summary -->
-        <br><br>
-        <!-- Main Content Start-->
+    </div>
+    <button class="btn btn-outline-primary btn-lg form-control"
+        onclick="document.location.href='index.php'">Home</button>
+    <!-- Form Summary -->
+    <br><br>
+    <!-- Main Content Start-->
 
     </div>
     <!-- Page End -->
