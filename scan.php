@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////
 if (isset($_GET['CN'])&&isset($_POST['Saved'])){
     // set save values;
-    $CompanyNumber = '';
+    $IDNumber = '';
     $Temperature = '';
     $TemperatureRange = '';
     $HistoryOfFever = '';
@@ -22,7 +22,7 @@ if (isset($_GET['CN'])&&isset($_POST['Saved'])){
     $Diarrhea = '';
 
     // set save values;
-    $CompanyNumber = $_GET['CN'];
+    $IDNumber = $_GET['CN'];
     $Temperature = $_POST['Temperature'];
     $TemperatureRange = $_POST['TemperatureRange'];
     $HistoryOfFever = $_POST['HistoryOfFever'];
@@ -34,7 +34,7 @@ if (isset($_GET['CN'])&&isset($_POST['Saved'])){
 
     // insert SQL
 $sql = "INSERT INTO [Covid19ScanResults]
-           ([CompanyNumber]
+           ([IDNumber]
            ,[Temperature]
            ,[TemperatureRange]
            ,[HistoryOfFever]
@@ -43,7 +43,7 @@ $sql = "INSERT INTO [Covid19ScanResults]
            ,[DifficultyInBreathing]
            ,[Diarrhea])
      VALUES
-           ('$CompanyNumber'
+           ('$IDNumber'
            ,'$Temperature'
            ,'$TemperatureRange'
            ,'$HistoryOfFever'

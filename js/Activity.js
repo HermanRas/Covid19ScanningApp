@@ -9,8 +9,8 @@ for (let i = 0; i < select.length; i++) {
 function updateValue(e) {
 
     switch (e.target.name) {
-        case 'CompanyNumber':
-            if (e.target.value.length === 8) {
+        case 'IDNumber':
+            if (e.target.value.length === 13) {
                 console.log('submit');
                 form.submit();
             }

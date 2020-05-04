@@ -3,30 +3,30 @@
 $pop = 0;
 
 
-if(isset($_POST['CompanyNumber'])){
+if(isset($_POST['IDNumber'])){
     // setting defaults
     $CN = '';
 
     // update post Value
-    $CN = $_POST['CompanyNumber'];
+    $CN = $_POST['IDNumber'];
 
 
     // get DB Data
-    $sql = "SELECT TOP 1 *,
-            DATEDIFF(day, DateTimeStamp, getdate() ) AS DateDiff
-            FROM Covid19ScanResults
-            WHERE CompanyNumber = :CN
-            ORDER BY
-            id DESC";
-    $sqlargs = array('CN'=>$CN);
+    $sql = " SELECT * FROM Covid19ScanResults WHERE IDNumber = '8701105015080' ORDER BY  id DESC  LIMIT 1;";
+    $sqlargs = array();
     require_once 'config/db_query.php'; 
     $LastScan =  sqlQuery($sql,$sqlargs);
 
-    $DateDiff = $LastScan[0][0]['DateDiff'];
+    
+    $LastDate = $LastScan[0][0]['DateTimeStamp'];
+    $date = new DateTime($LastDate);
+    $now = new DateTime();
+
+    $DateDiff = $date->diff($now)->format("%d");
+    
     if(isset($DateDiff)){
-        if ($LastScan[0][0]['DateDiff'] > 0){
-            $Days = $LastScan[0][0]['DateDiff'];
-            echo "<script> document.location.href='scan.php?CN=$CN&Days=$Days'</script>";
+        if ($DateDiff > 0){
+            echo "<script> document.location.href='scan.php?CN=$CN&Days=$DateDiff'</script>";
             die;
         }else{
             $pop = 1;
@@ -93,9 +93,9 @@ if(isset($_POST['CompanyNumber'])){
                     <form method="POST" name="form">
 
                         <div class="form-group">
-                            <label for="CompanyNumber">Company Number#</label>
-                            <input type="text" class="form-control" id="CompanyNumber" name="CompanyNumber" autofocus
-                                placeholder="Company Number here..." maxlength="8" minlength="8" required>
+                            <label for="IDNumber">ID Number#</label>
+                            <input type="text" class="form-control" id="IDNumber" name="IDNumber" autofocus
+                                placeholder="ID Number here..." maxlength="13" minlength="8" required>
                         </div>
 
                         <button class="btn btn-outline-success btn-lg form-control" id="save">Scan</button>

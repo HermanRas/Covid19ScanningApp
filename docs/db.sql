@@ -1,23 +1,30 @@
-/****** Object:  Table [dbo].[Covid19ScanResults]    Script Date: 2020/04/27 11:39:38 ******/
-SET ANSI_NULLS ON
-GO
+--#SQLite sondagskooldb
+/**
+--Command	Description
+.show	Displays current settings for various parameters
+.databases	Provides database names and files
+.quit	Quit sqlite3 program
+.tables	Show current tables
+.schema	Display schema of table
+.header	Display or hide the output table header
+.mode Select mode for the output table
+.dump	Dump database in SQL text format
 
-SET QUOTED_IDENTIFIER ON
-GO
+--cleanup
+DELETE FROM tblename;
+VACUUM;
+**/
 
-CREATE TABLE [dbo].[Covid19ScanResults](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[DateTimeStamp] [smalldatetime] NOT NULL,
-	[CompanyNumber] [nvarchar](50) NOT NULL,
-	[Temperature] [nvarchar](50) NOT NULL,
-	[TemperatureRange] [smallint] NOT NULL,
-	[HistoryOfFever] [smallint] NOT NULL,
-	[SoreThroat] [smallint] NOT NULL,
-	[Cough] [smallint] NOT NULL,
-	[DifficultyInBreathing] [smallint] NOT NULL,
-	[Diarrhea] [smallint] NOT NULL
-) ON [PRIMARY]
-GO
+--create new tables
+CREATE TABLE Covid19ScanResults ( 
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	IDNumber TEXT NOT NULL,
+	Temperature INTEGER,
+	DateTimeStamp dDATETIME DEFAULT CURRENT_TIMESTAMP,
+	TemperatureRange BIT NOT NULL,
+	HistoryOfFever BIT NOT NULL,
+	SoreThroat BIT NOT NULL,
+	Cough BIT NOT NULL,
+	DifficultyInBreathing BIT NOT NULL,
+    Diarrhea BIT NOT NULL);
 
-ALTER TABLE [dbo].[Covid19ScanResults] ADD  CONSTRAINT [DF_Covid19ScanResults_DateTimeStamp]  DEFAULT (getdate()) FOR [DateTimeStamp]
-GO
